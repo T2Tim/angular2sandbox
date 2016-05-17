@@ -65160,6 +65160,7 @@
 	    _classCallCheck(this, HomeController);
 	
 	    this.title = "Welcome to our clan";
+	    this.count = 5;
 	};
 	
 	exports.HomeController = HomeController;
@@ -65234,7 +65235,7 @@
 /* 18 */
 /***/ function(module, exports) {
 
-	module.exports = "<section class=\"war\">\n    <div>\n        <h1>{{vm.title}}</h1>\n    </div>\n    <div ng-cloak>\n        <section layout=\"row\" layout-sm=\"column\" layout-align=\"center center\" layout-wrap>\n            <md-button class=\"md-primary\">Material Button</md-button>\n        </section>\n    </div>\n</section>"
+	module.exports = "<section class=\"war\">\n    <div>\n        <h1>{{vm.title}}</h1>\n    </div>\n    <div>\n        <section layout=\"row\" layout-sm=\"column\" layout-align=\"center center\" layout-wrap>\n            <md-button class=\"md-primary\">Material Button</md-button>\n        </section>\n    </div>\n</section>"
 
 /***/ },
 /* 19 */
@@ -65248,13 +65249,15 @@
 	
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 	
-	var WarController = function WarController() {
+	var WarController = function WarController($scope) {
 	    _classCallCheck(this, WarController);
 	
 	    this.title = "Clan Wars";
 	};
 	
 	exports.WarController = WarController;
+	
+	WarController.$inject = ["$scope"];
 
 /***/ },
 /* 20 */
@@ -65388,7 +65391,7 @@
 /* 26 */
 /***/ function(module, exports) {
 
-	module.exports = "<div>This is my component</div>"
+	module.exports = "<div>\r\n    <h3>This is my component</h3>\r\n    <h4>Clicks: {{vm.count}}</h4>\r\n\r\n    <md-button class=\"md-primary\" ng-click=\"vm.controlClick()\">Material Button</md-button>\r\n</div>"
 
 /***/ },
 /* 27 */
@@ -65400,12 +65403,27 @@
 	    value: true
 	});
 	
+	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
+	
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 	
-	var FooBarController = function FooBarController() {
-	    _classCallCheck(this, FooBarController);
-	};
+	var FooBarController = (function () {
+	    function FooBarController($scope) {
+	        _classCallCheck(this, FooBarController);
 	
+	        this.count = $scope.$parent.vm.count || 0;
+	    }
+	
+	    _createClass(FooBarController, [{
+	        key: "controlClick",
+	        value: function controlClick() {
+	            this.count = this.count + 1;
+	        }
+	    }]);
+	
+	    return FooBarController;
+	})();
+
 	exports.FooBarController = FooBarController;
 
 /***/ }

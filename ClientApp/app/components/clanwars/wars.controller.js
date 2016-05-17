@@ -1,7 +1,9 @@
 
 export class WarController {
 
-    constructor(){
+    constructor($scope){
         this.title = "Clan Wars";
     }
 }
+
+WarController.$inject = ["$scope"];
