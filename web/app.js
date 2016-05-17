@@ -48,60 +48,34 @@
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
 	
-	var _appDirective = __webpack_require__(1);
-	
-	var _angular = __webpack_require__(3);
+	var _angular = __webpack_require__(1);
 	
 	var _angular2 = _interopRequireDefault(_angular);
 	
-	var _angularUiRouter = __webpack_require__(5);
+	var _angularUiRouter = __webpack_require__(3);
 	
 	var _angularUiRouter2 = _interopRequireDefault(_angularUiRouter);
 	
-	_angular2['default'].module('app', [_angularUiRouter2['default']]).directive('app', _appDirective.appDirective);
+	var _appDirective = __webpack_require__(4);
+	
+	var _componentsHomeHome = __webpack_require__(6);
+	
+	var _componentsClanwarsWars = __webpack_require__(10);
+	
+	var _componentsCommonCommon = __webpack_require__(14);
+	
+	_angular2['default'].module('app', [_angularUiRouter2['default'], _componentsHomeHome.home.name, _componentsClanwarsWars.war.name, _componentsCommonCommon.common.name]).directive('app', _appDirective.appDirective);
 
 /***/ },
 /* 1 */
 /***/ function(module, exports, __webpack_require__) {
 
-	'use strict';
-	
-	Object.defineProperty(exports, '__esModule', {
-	  value: true
-	});
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
-	
-	var _appHtml = __webpack_require__(2);
-	
-	var _appHtml2 = _interopRequireDefault(_appHtml);
-	
-	var appDirective = function appDirective() {
-	  return {
-	    template: _appHtml2['default'],
-	    restrict: 'E',
-	    scope: {},
-	    replace: true
-	  };
-	};
-	exports.appDirective = appDirective;
-
-/***/ },
-/* 2 */
-/***/ function(module, exports) {
-
-	module.exports = "<div id=\"app\">\r\n  <header>\r\n    <nav>\r\n      <div class=\"logo\">\r\n        <span ui-sref=\"home\">\r\n          <a ui-sref=\"home\">ngBlog</a>\r\n        </span>\r\n      </div>\r\n      <div class=\"links\">\r\n        <a ui-sref=\"blog\">blog</a>\r\n      </div>\r\n    </nav>\r\n  </header>\r\n  <main>\r\n    <div ui-view></div>\r\n  </main>\r\n  <footer></footer>\r\n</div>\r\n"
-
-/***/ },
-/* 3 */
-/***/ function(module, exports, __webpack_require__) {
-
-	__webpack_require__(4);
+	__webpack_require__(2);
 	module.exports = angular;
 
 
 /***/ },
-/* 4 */
+/* 2 */
 /***/ function(module, exports) {
 
 	/**
@@ -30974,7 +30948,7 @@
 	!window.angular.$$csp().noInlineStyle && window.angular.element(document.head).prepend('<style type="text/css">@charset "UTF-8";[ng\\:cloak],[ng-cloak],[data-ng-cloak],[x-ng-cloak],.ng-cloak,.x-ng-cloak,.ng-hide:not(.ng-hide-animate){display:none !important;}ng\\:form{display:block;}.ng-animate-shim{visibility:hidden;}.ng-anchor{position:absolute;}</style>');
 
 /***/ },
-/* 5 */
+/* 3 */
 /***/ function(module, exports) {
 
 	/**
@@ -35516,6 +35490,286 @@
 	  .filter('isState', $IsStateFilter)
 	  .filter('includedByState', $IncludedByStateFilter);
 	})(window, window.angular);
+
+/***/ },
+/* 4 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, '__esModule', {
+	  value: true
+	});
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+	
+	var _appHtml = __webpack_require__(5);
+	
+	var _appHtml2 = _interopRequireDefault(_appHtml);
+	
+	var appDirective = function appDirective() {
+	  return {
+	    template: _appHtml2['default'],
+	    restrict: 'E',
+	    scope: {},
+	    replace: true
+	  };
+	};
+	exports.appDirective = appDirective;
+
+/***/ },
+/* 5 */
+/***/ function(module, exports) {
+
+	module.exports = "<div id=\"app\">\n  <header>\n    <nav>\n      <div class=\"logo\">\n        <span ui-sref=\"home\">\n          <a ui-sref=\"home\">The clan</a>\n        </span>\n      </div>\n      <div class=\"links\">\n          <a ui-sref=\"wars\">Clan wars</a>\n      </div>\n    </nav>\n  </header>\n  <main>\n    <div ui-view></div>\n  </main>\n  <footer>\n  </footer>\n</div>\n"
+
+/***/ },
+/* 6 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, '__esModule', {
+	    value: true
+	});
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+	
+	var _angular = __webpack_require__(1);
+	
+	var _angular2 = _interopRequireDefault(_angular);
+	
+	var _homeDirective = __webpack_require__(7);
+	
+	var home = _angular2['default'].module('home', []).config(function ($stateProvider, $urlRouterProvider) {
+	    $urlRouterProvider.otherwise('/');
+	
+	    $stateProvider.state('home', {
+	        url: '/',
+	        template: '<home></home>'
+	    });
+	}).directive('home', _homeDirective.homeDirective);
+	exports.home = home;
+
+/***/ },
+/* 7 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, '__esModule', {
+	    value: true
+	});
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+	
+	var _homeController = __webpack_require__(8);
+	
+	var _homeHtml = __webpack_require__(9);
+	
+	var _homeHtml2 = _interopRequireDefault(_homeHtml);
+	
+	var homeDirective = function homeDirective() {
+	    return {
+	        template: _homeHtml2['default'],
+	        controller: _homeController.HomeController,
+	        controllerAs: 'vm',
+	        restrict: 'E',
+	        replace: true,
+	        scope: {}
+	    };
+	};
+	exports.homeDirective = homeDirective;
+
+/***/ },
+/* 8 */
+/***/ function(module, exports) {
+
+	"use strict";
+	
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	
+	var HomeController = function HomeController() {
+	    _classCallCheck(this, HomeController);
+	
+	    this.title = "Welcome to our clan";
+	};
+	
+	exports.HomeController = HomeController;
+
+/***/ },
+/* 9 */
+/***/ function(module, exports) {
+
+	module.exports = "<section class=\"home\">\n    <div>\n        <h1>{{vm.title}}</h1>\n        <h3>This is our clan</h3>\n    </div>\n    <navbutton data-set=\"{name: 'foo'}\"}></navbutton>\n</section>"
+
+/***/ },
+/* 10 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, '__esModule', {
+	    value: true
+	});
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+	
+	var _angular = __webpack_require__(1);
+	
+	var _angular2 = _interopRequireDefault(_angular);
+	
+	var _angularUiRouter = __webpack_require__(3);
+	
+	var _angularUiRouter2 = _interopRequireDefault(_angularUiRouter);
+	
+	var _warsDirective = __webpack_require__(11);
+	
+	var war = _angular2['default'].module('war', [_angularUiRouter2['default']]).config(function ($stateProvider) {
+	    $stateProvider.state('wars', {
+	        url: '/war',
+	        template: '<war></war>'
+	    });
+	}).directive('war', _warsDirective.warDirective);
+	exports.war = war;
+
+/***/ },
+/* 11 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, '__esModule', {
+	    value: true
+	});
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+	
+	var _warsHtml = __webpack_require__(12);
+	
+	var _warsHtml2 = _interopRequireDefault(_warsHtml);
+	
+	var _warsController = __webpack_require__(13);
+	
+	var warDirective = function warDirective() {
+	    return {
+	        template: _warsHtml2['default'],
+	        controller: _warsController.WarController,
+	        controllerAs: 'vm',
+	        scope: {},
+	        restrict: 'E',
+	        replace: true
+	    };
+	};
+	exports.warDirective = warDirective;
+
+/***/ },
+/* 12 */
+/***/ function(module, exports) {
+
+	module.exports = "<section class=\"war\">\n    <div>\n        <h1>{{vm.title}}</h1>\n    </div>\n</section>"
+
+/***/ },
+/* 13 */
+/***/ function(module, exports) {
+
+	"use strict";
+	
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	
+	var WarController = function WarController() {
+	    _classCallCheck(this, WarController);
+	
+	    this.title = "Clan Wars";
+	};
+	
+	exports.WarController = WarController;
+
+/***/ },
+/* 14 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, '__esModule', {
+	    value: true
+	});
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+	
+	var _angular = __webpack_require__(1);
+	
+	var _angular2 = _interopRequireDefault(_angular);
+	
+	var _navButtonNavButtonDirective = __webpack_require__(15);
+	
+	var common = _angular2['default'].module('common', []).directive('navbutton', _navButtonNavButtonDirective.navButtonDirective);
+	exports.common = common;
+
+/***/ },
+/* 15 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, '__esModule', {
+	    value: true
+	});
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+	
+	var _navButtonHtml = __webpack_require__(16);
+	
+	var _navButtonHtml2 = _interopRequireDefault(_navButtonHtml);
+	
+	var _navButtonController = __webpack_require__(17);
+	
+	var navButtonDirective = function navButtonDirective() {
+	    return {
+	        template: _navButtonHtml2['default'],
+	        restrict: 'E',
+	        replace: true,
+	        scope: {
+	            data: "=set"
+	        },
+	        bindToController: true,
+	        controller: _navButtonController.NavButtonController,
+	        controllerAs: 'vm'
+	    };
+	};
+	exports.navButtonDirective = navButtonDirective;
+
+/***/ },
+/* 16 */
+/***/ function(module, exports) {
+
+	module.exports = "<div>this is a {{ vm.data.name }}</div>"
+
+/***/ },
+/* 17 */
+/***/ function(module, exports) {
+
+	"use strict";
+	
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	
+	var NavButtonController = function NavButtonController() {
+	    _classCallCheck(this, NavButtonController);
+	};
+	
+	exports.NavButtonController = NavButtonController;
 
 /***/ }
 /******/ ]);

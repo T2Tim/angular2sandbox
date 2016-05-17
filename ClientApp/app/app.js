@@ -9,6 +9,7 @@ import {common} from './components/common/common';
 angular.module('app', [
     uiRouter,
     home.name,
-    war.name
+    war.name,
+    common.name
 ])
 .directive('app', appDirective);
