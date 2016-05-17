@@ -35709,7 +35709,12 @@
 	
 	var _angular2 = _interopRequireDefault(_angular);
 	
+	//You have to register this directive below...
+	
 	var _navButtonNavButtonDirective = __webpack_require__(15);
+	
+	//This import is the directive and is wrapped in an IFFE - though it does need to be manually
+	//called out as a dependency in the component using it -
 	
 	__webpack_require__(18);
 	
