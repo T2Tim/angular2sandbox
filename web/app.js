@@ -35541,7 +35541,7 @@
 	
 	var _homeDirective = __webpack_require__(7);
 	
-	var home = _angular2['default'].module('home', []).config(function ($stateProvider, $urlRouterProvider) {
+	var home = _angular2['default'].module('home', ['foo.bar.test']).config(function ($stateProvider, $urlRouterProvider) {
 	    $urlRouterProvider.otherwise('/');
 	
 	    $stateProvider.state('home', {
@@ -35605,7 +35605,7 @@
 /* 9 */
 /***/ function(module, exports) {
 
-	module.exports = "<section class=\"home\">\n    <div>\n        <h1>{{vm.title}}</h1>\n        <h3>This is our clan</h3>\n    </div>\n    <navbutton data-set=\"{name: 'foo'}\"}></navbutton>\n</section>"
+	module.exports = "<section class=\"home\">\n    <div>\n        <h1>{{vm.title}}</h1>\n        <h3>This is our clan</h3>\n    </div>\n    <navbutton data-set=\"{name: 'foo'}\"}></navbutton>\n    <foo-bar></foo-bar>\n</section>"
 
 /***/ },
 /* 10 */
@@ -35711,6 +35711,8 @@
 	
 	var _navButtonNavButtonDirective = __webpack_require__(15);
 	
+	__webpack_require__(18);
+	
 	var common = _angular2['default'].module('common', []).directive('navbutton', _navButtonNavButtonDirective.navButtonDirective);
 	exports.common = common;
 
@@ -35770,6 +35772,73 @@
 	};
 	
 	exports.NavButtonController = NavButtonController;
+
+/***/ },
+/* 18 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	var _fooBarDirective = __webpack_require__(19);
+	
+	(function (window, angular) {
+	    angular.module('foo.bar.test', []).directive('fooBar', _fooBarDirective.fooBarDirective);
+	})(window, window.angular);
+
+/***/ },
+/* 19 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, '__esModule', {
+	    value: true
+	});
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+	
+	var _fooBarHtml = __webpack_require__(20);
+	
+	var _fooBarHtml2 = _interopRequireDefault(_fooBarHtml);
+	
+	var _fooBarController = __webpack_require__(21);
+	
+	var fooBarDirective = function fooBarDirective() {
+	    return {
+	        template: _fooBarHtml2['default'],
+	        restrict: 'E',
+	        replace: true,
+	        scope: {},
+	        bindToController: true,
+	        controller: _fooBarController.FooBarController,
+	        controllerAs: 'vm'
+	    };
+	};
+	exports.fooBarDirective = fooBarDirective;
+
+/***/ },
+/* 20 */
+/***/ function(module, exports) {
+
+	module.exports = "<div>This is my component</div>"
+
+/***/ },
+/* 21 */
+/***/ function(module, exports) {
+
+	"use strict";
+	
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	
+	var FooBarController = function FooBarController() {
+	    _classCallCheck(this, FooBarController);
+	};
+	
+	exports.FooBarController = FooBarController;
 
 /***/ }
 /******/ ]);
